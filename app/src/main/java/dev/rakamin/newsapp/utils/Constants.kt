@@ -1,8 +1,8 @@
 package dev.rakamin.newsapp.utils
 
 object Constants {
-    // ⚠️ PENTING: Ganti dengan API Key Anda dari https://newsapi.org/
-    const val API_KEY = "YOUR_API_KEY_HERE"
+    // API Key from newsapi.org
+    const val API_KEY = "fa3a17eafe0541febac54a3d7f15c0ba"
     
     const val BASE_URL = "https://newsapi.org/"
     const val PAGE_SIZE = 20

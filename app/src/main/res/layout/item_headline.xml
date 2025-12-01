@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="280dp"
+    android:layout_width="300dp"
     android:layout_height="match_parent"
-    android:layout_marginEnd="12dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="4dp">
+    android:layout_marginEnd="16dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="0dp"
+    app:strokeWidth="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,6 +18,7 @@
             android:layout_height="0dp"
             android:contentDescription="Headline Image"
             android:scaleType="centerCrop"
+            android:background="@color/light_gray"
             app:layout_constraintBottom_toTopOf="@+id/tvHeadlineTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +27,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="100dp"
             android:background="@drawable/gradient_overlay"
             app:layout_constraintBottom_toBottomOf="@+id/ivHeadlineImage"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,13 +37,18 @@
             android:id="@+id/tvHeadlineTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
+            android:layout_margin="16dp"
             android:ellipsize="end"
-            android:maxLines="2"
+            android:maxLines="3"
             android:text="Headline Title"
             android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:textSize="17sp"
+            android:lineSpacingExtra="2dp"
+            android:fontFamily="sans-serif-medium"
+            android:shadowColor="#80000000"
+            android:shadowDx="0"
+            android:shadowDy="1"
+            android:shadowRadius="3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

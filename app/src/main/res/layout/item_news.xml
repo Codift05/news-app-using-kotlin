@@ -5,20 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="4dp">
+    android:backgroundTint="@color/surface"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/divider">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp">
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/ivNewsImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:contentDescription="News Image"
             android:scaleType="centerCrop"
+            android:background="@color/light_gray"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_placeholder" />
@@ -27,55 +31,51 @@
             android:id="@+id/tvNewsTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="16dp"
             android:ellipsize="end"
             android:maxLines="3"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            android:lineSpacingExtra="2dp"
+            android:fontFamily="sans-serif-medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivNewsImage"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="News Title Here" />
-
-        <TextView
-            android:id="@+id/tvNewsDescription"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="4dp"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:textColor="@color/gray"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivNewsImage"
-            app:layout_constraintTop_toBottomOf="@+id/tvNewsTitle"
-            tools:text="News description here" />
+            tools:text="News Title Here that spans multiple lines for better display" />
 
         <TextView
             android:id="@+id/tvNewsSource"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:textColor="@color/primary"
+            android:textColor="@color/text_tertiary"
             android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivNewsImage"
-            tools:text="CNN Indonesia" />
+            android:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@+id/ivNewsImage"
+            app:layout_constraintTop_toBottomOf="@+id/tvNewsTitle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="The Times of India" />
 
         <TextView
             android:id="@+id/tvNewsDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/gray"
+            android:layout_marginStart="6dp"
+            android:textColor="@color/text_tertiary"
             android:textSize="12sp"
+            android:fontFamily="sans-serif"
             app:layout_constraintStart_toEndOf="@+id/tvNewsSource"
-            app:layout_constraintTop_toBottomOf="@+id/ivNewsImage"
-            tools:text="• 2 hours ago" />
+            app:layout_constraintTop_toTopOf="@+id/tvNewsSource"
+            app:layout_constraintBottom_toBottomOf="@+id/tvNewsSource"
+            tools:text="• 30 Nov 2025, 21:53" />
+
+        <TextView
+            android:id="@+id/tvNewsDescription"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            tools:text="Hidden description" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
