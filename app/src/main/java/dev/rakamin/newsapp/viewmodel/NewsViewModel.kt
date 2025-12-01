@@ -49,11 +49,20 @@ class NewsViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 _isLoading.value = true
-                val response = repository.getHeadlines(pageSize = 10)
+                // Use everything endpoint for breaking news with sortBy=publishedAt
+                val response = repository.getNews(
+                    query = "breaking OR latest",
+                    page = 1,
+                    pageSize = 10
+                )
                 
                 if (response.isSuccessful) {
                     response.body()?.let { newsResponse ->
-                        _headlines.value = newsResponse.articles ?: emptyList()
+                        // Filter articles with images for better display
+                        val articlesWithImages = newsResponse.articles?.filter { 
+                            !it.urlToImage.isNullOrEmpty() 
+                        } ?: emptyList()
+                        _headlines.value = articlesWithImages.take(10)
                     }
                 } else {
                     _errorMessage.value = "Error: ${response.message()}"

@@ -8,51 +8,34 @@
     app:cardElevation="0dp"
     app:strokeWidth="0dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/ivHeadlineImage"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="1"
             android:contentDescription="Headline Image"
             android:scaleType="centerCrop"
-            android:background="@color/light_gray"
-            app:layout_constraintBottom_toTopOf="@+id/tvHeadlineTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_weight="1" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@drawable/gradient_overlay"
-            app:layout_constraintBottom_toBottomOf="@+id/ivHeadlineImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:background="@color/light_gray" />
 
         <TextView
             android:id="@+id/tvHeadlineTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:padding="16dp"
+            android:background="@color/surface"
             android:ellipsize="end"
             android:maxLines="3"
             android:text="Headline Title"
-            android:textColor="@android:color/white"
-            android:textSize="17sp"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
             android:lineSpacingExtra="2dp"
-            android:fontFamily="sans-serif-medium"
-            android:shadowColor="#80000000"
-            android:shadowDx="0"
-            android:shadowDy="1"
-            android:shadowRadius="3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:fontFamily="sans-serif-medium" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>
