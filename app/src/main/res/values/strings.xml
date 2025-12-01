@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="breaking_news">Breaking News</string>
+    <string name="latest_news">Latest News</string>
+    <string name="detail_news">Detail Berita</string>
+    <string name="open_in_browser">Buka di Browser</string>
+    <string name="no_title">No Title</string>
+    <string name="no_description">No Description</string>
+    <string name="unknown_source">Unknown Source</string>
+    <string name="unknown_date">Unknown Date</string>
+    <string name="author_unknown">Author Unknown</string>
+    <string name="by_author">By %s</string>
+</resources>
