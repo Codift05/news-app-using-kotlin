@@ -25,7 +25,12 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         
-        article = intent.getParcelableExtra(EXTRA_ARTICLE)
+        article = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra(EXTRA_ARTICLE, Article::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getParcelableExtra(EXTRA_ARTICLE)
+        }
         
         setupUI()
         displayArticle()
