@@ -1,276 +1,222 @@
-# 📰 NewsApp - Aplikasi Berita Android
+# NewsApp - Modern Android News Application
 
-Aplikasi Android modern untuk membaca berita terkini dari NewsAPI dengan fitur Headline dan List News lengkap dengan Infinite Scrolling.
+A modern Android application for reading latest news from NewsAPI, featuring breaking news headlines and comprehensive news listing with infinite scrolling capabilities.
 
-## 🎯 Fitur Utama
+## Features
 
-- ✅ **Breaking News Headlines** - Menampilkan berita utama dalam format horizontal scroll
-- ✅ **Latest News List** - Daftar berita terbaru dengan infinite scroll
-- ✅ **Detail Berita** - Tampilan detail lengkap dengan opsi buka di browser
-- ✅ **Infinite Scroll** - Otomatis load berita saat scroll ke bawah
-- ✅ **Pull to Refresh** - Refresh data dengan swipe down
-- ✅ **Modern UI** - Desain Material Design 3 yang clean dan responsive
+- Breaking News Headlines with horizontal scrolling
+- Latest News list with infinite scroll pagination
+- Detailed article view with browser integration
+- Pull-to-refresh functionality
+- Modern Material Design 3 UI
+- Responsive layout for various screen sizes
 
-## 🏗️ Arsitektur
+## Architecture
 
-Aplikasi ini menggunakan **MVVM (Model-View-ViewModel)** dengan **Repository Pattern**:
+This application implements MVVM (Model-View-ViewModel) architecture pattern with Repository Pattern for clean separation of concerns:
 
 ```
-📁 dev.rakamin.newsapp/
-├── 📁 network/          # Retrofit & API Services
+dev.rakamin.newsapp/
+├── network/          # Retrofit & API Services
 │   ├── NewsInterface.kt
 │   └── NewsService.kt
-├── 📁 model/            # Data Classes
+├── model/            # Data Classes
 │   ├── Article.kt
 │   ├── Source.kt
 │   └── NewsResponse.kt
-├── 📁 repository/       # Data Repository
+├── repository/       # Data Repository
 │   └── NewsRepository.kt
-├── 📁 viewmodel/        # ViewModels
+├── viewmodel/        # ViewModels
 │   └── NewsViewModel.kt
-├── 📁 ui/
-│   ├── 📁 adapter/      # RecyclerView Adapters
+├── ui/
+│   ├── adapter/      # RecyclerView Adapters
 │   │   ├── HeadlineAdapter.kt
 │   │   └── NewsAdapter.kt
-│   └── 📁 view/         # Activities
+│   └── view/         # Activities
 │       ├── MainActivity.kt
 │       └── DetailActivity.kt
-└── 📁 utils/            # Utilities
+└── utils/            # Utilities
     └── Constants.kt
 ```
 
-## 🛠️ Tech Stack
+## Technology Stack
 
-- **Language**: Kotlin
-- **IDE**: Android Studio Dolphin 2021.3.1
-- **Gradle**: 7.2
-- **Min SDK**: 24 (Android 7.0)
-- **Target SDK**: 33 (Android 13)
+**Core:**
+- Language: Kotlin
+- Build Tool: Gradle 8.4
+- Java Runtime: JDK 21 LTS
+- Minimum SDK: API 24 (Android 7.0)
+- Target SDK: API 33 (Android 13)
 
-### Libraries:
-- **Retrofit 2.9.0** - REST API client
-- **OkHttp 4.10.0** - HTTP client dengan logging
-- **Glide 4.14.2** - Image loading
-- **Lifecycle Components** - ViewModel & LiveData
-- **Coroutines** - Asynchronous programming
-- **Material Components** - Modern UI
-- **RecyclerView & CardView** - List UI
+**Libraries:**
+- Retrofit 2.9.0 - REST API client
+- OkHttp 4.10.0 - HTTP client with logging interceptor
+- Glide 4.14.2 - Image loading and caching
+- Lifecycle Components - ViewModel and LiveData
+- Kotlin Coroutines - Asynchronous programming
+- Material Components - Modern UI components
+- RecyclerView & CardView - List implementation
 
-## 📋 Prerequisites
+## Prerequisites
 
-1. Android Studio Dolphin 2021.3.1 atau lebih baru
-2. JDK 8 atau lebih baru
-3. Android SDK dengan API Level 33
-4. API Key dari NewsAPI (gratis di https://newsapi.org/)
+- Android Studio Electric Eel or newer
+- JDK 21 or higher
+- Android SDK with API Level 33
+- NewsAPI key (free registration at https://newsapi.org/)
 
-## 🚀 Cara Setup & Running
+## Installation
 
-### 1. Clone Project
+### 1. Clone Repository
 
 ```bash
-git clone <repository-url>
-cd final_project
+git clone https://github.com/Codift05/news-app-using-kotlin.git
+cd news-app-using-kotlin
 ```
 
-### 2. Setup API Key
+### 2. Configure API Key
 
-Buka file `Constants.kt` di path:
-```
-app/src/main/java/dev/rakamin/newsapp/utils/Constants.kt
-```
-
-Ganti `YOUR_API_KEY_HERE` dengan API Key Anda:
+Navigate to `app/src/main/java/dev/rakamin/newsapp/utils/Constants.kt` and replace the placeholder:
 
 ```kotlin
-const val API_KEY = "masukkan_api_key_anda_disini"
+const val API_KEY = "your_api_key_here"
 ```
 
-**Cara mendapatkan API Key:**
-1. Kunjungi https://newsapi.org/
-2. Klik "Get API Key" atau "Sign Up"
-3. Daftar dengan email Anda (GRATIS)
-4. Copy API Key yang diberikan
-5. Paste ke file Constants.kt
+To obtain an API key:
+1. Visit https://newsapi.org/
+2. Click "Get API Key" and register
+3. Verify your email
+4. Copy the provided API key
 
-### 3. Sync Gradle
+### 3. Build Project
 
-- Buka project di Android Studio
-- Tunggu hingga Gradle sync selesai
-- Jika ada error, klik "Sync Project with Gradle Files"
+#### Using Android Studio:
+1. Open project in Android Studio
+2. Wait for Gradle sync to complete
+3. Build > Make Project
 
-### 4. Run Aplikasi
+#### Using Command Line:
+```bash
+./gradlew build
+```
 
-**Opsi 1: Menggunakan Emulator**
-1. Buka AVD Manager (Android Virtual Device)
-2. Buat emulator baru atau gunakan yang sudah ada
-3. Klik tombol Run ▶️ atau Shift+F10
-4. Pilih emulator yang sudah dibuat
+### 4. Run Application
 
-**Opsi 2: Menggunakan Device Fisik**
-1. Aktifkan Developer Options & USB Debugging di HP
-2. Hubungkan HP ke komputer via USB
-3. Klik Run ▶️ dan pilih device Anda
+#### On Emulator:
+1. Open AVD Manager
+2. Create or select an existing virtual device
+3. Run the application (Shift+F10)
 
-### 5. Build APK
+#### On Physical Device:
+1. Enable Developer Options and USB Debugging
+2. Connect device via USB
+3. Select device and run
 
-**Debug APK:**
+## Build APK
+
+**Debug Build:**
 ```bash
 ./gradlew assembleDebug
 ```
-APK ada di: `app/build/outputs/apk/debug/app-debug.apk`
+Output: `app/build/outputs/apk/debug/app-debug.apk`
 
-**Release APK:**
+**Release Build:**
 ```bash
 ./gradlew assembleRelease
 ```
-APK ada di: `app/build/outputs/apk/release/app-release.apk`
+Output: `app/build/outputs/apk/release/app-release.apk`
 
-**Atau via Android Studio:**
-1. Build → Build Bundle(s) / APK(s) → Build APK(s)
-2. Tunggu sampai selesai
-3. Klik "locate" untuk membuka folder APK
-
-## 📱 Cara Menggunakan Aplikasi
+## Usage
 
 1. **Home Screen**
-   - Lihat Breaking News di bagian atas (horizontal scroll)
-   - Scroll ke bawah untuk melihat Latest News
-   - Scroll terus ke bawah, berita akan otomatis load (infinite scroll)
-   - Swipe down untuk refresh
+   - View breaking news in horizontal scroll section
+   - Browse latest news in vertical list
+   - Automatic pagination on scroll
+   - Pull down to refresh content
 
-2. **Detail Screen**
-   - Klik salah satu berita untuk melihat detail
-   - Baca konten lengkap berita
-   - Klik "Buka di Browser" untuk membaca artikel lengkap
+2. **Detail View**
+   - Tap any news item to view details
+   - Read full article content
+   - Open original article in browser
 
-## 🔧 Troubleshooting
+## API Endpoints
 
-### Problem: "401 Unauthorized"
-**Solusi**: API Key salah atau belum diisi. Pastikan sudah mengisi API_KEY di Constants.kt
-
-### Problem: "No Internet Connection"
-**Solusi**: 
-- Pastikan emulator/device terhubung internet
-- Cek permission INTERNET di AndroidManifest.xml
-
-### Problem: Gambar tidak muncul
-**Solusi**: 
-- Pastikan ada koneksi internet
-- Beberapa URL gambar mungkin tidak valid dari API
-
-### Problem: Gradle Sync Failed
-**Solusi**:
-- File → Invalidate Caches → Invalidate and Restart
-- Pastikan internet stabil untuk download dependencies
-
-## 📊 API Endpoints
-
-### 1. Top Headlines (Breaking News)
+### Top Headlines
 ```
 GET https://newsapi.org/v2/top-headlines
 Parameters:
-- country: id (Indonesia)
+- country: id
 - apiKey: YOUR_API_KEY
-- page: 1
-- pageSize: 10
+- page: integer
+- pageSize: integer
 ```
 
-### 2. Everything (Latest News)
+### Everything
 ```
 GET https://newsapi.org/v2/everything
 Parameters:
-- q: Indonesia
+- q: search query
 - apiKey: YOUR_API_KEY
-- page: 1
-- pageSize: 20
+- page: integer
+- pageSize: integer
 - sortBy: publishedAt
 ```
 
-## 🎨 UI/UX Features
-
-- **Material Design 3** - Modern & clean interface
-- **Responsive Layout** - Support untuk berbagai ukuran layar
-- **Smooth Scrolling** - Infinite scroll yang smooth
-- **Image Caching** - Glide untuk performa optimal
-- **Pull to Refresh** - SwipeRefreshLayout
-- **Loading Indicators** - Progress bar saat load data
-- **Error Handling** - Toast message untuk error
-
-## 📖 Penjelasan Komponen
+## Project Structure
 
 ### Network Layer
-- **NewsInterface**: Mendefinisikan endpoint API
-- **NewsService**: Setup Retrofit dengan OkHttp & logging
+- `NewsInterface`: API endpoint definitions
+- `NewsService`: Retrofit configuration with OkHttp logging
 
-### Model Layer
-- **Article**: Data class untuk artikel berita
-- **Source**: Data class untuk sumber berita
-- **NewsResponse**: Response wrapper dari API
+### Data Layer
+- `Article`: News article data model
+- `Source`: News source data model
+- `NewsResponse`: API response wrapper
 
 ### Repository Layer
-- **NewsRepository**: Abstraksi layer untuk fetch data dari API
+- `NewsRepository`: Data access abstraction
 
 ### ViewModel Layer
-- **NewsViewModel**: Business logic, manage LiveData, pagination
+- `NewsViewModel`: Business logic and state management
 
-### View Layer (UI)
-- **MainActivity**: Tampilan utama dengan 2 RecyclerView
-- **DetailActivity**: Detail artikel
-- **HeadlineAdapter**: Adapter untuk headline horizontal
-- **NewsAdapter**: Adapter untuk news list vertical
+### View Layer
+- `MainActivity`: Primary interface with dual RecyclerViews
+- `DetailActivity`: Article detail display
+- `HeadlineAdapter`: Horizontal news carousel adapter
+- `NewsAdapter`: Vertical news list adapter
 
-## 🔐 Permissions
+## Permissions
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 ```
 
-## 📝 Notes untuk Presentasi (PPT)
+## Troubleshooting
 
-### Slide 1: Overview
-- Nama Aplikasi: NewsApp
-- Tujuan: Aplikasi berita real-time dari NewsAPI
-- Tech: Kotlin + MVVM + Retrofit
+### 401 Unauthorized Error
+Verify API key is correctly configured in `Constants.kt`
 
-### Slide 2: Fitur Utama
-- Breaking News (Horizontal)
-- Latest News (Vertical + Infinite Scroll)
-- Detail Berita
-- Pull to Refresh
+### No Internet Connection
+- Ensure device/emulator has internet access
+- Verify INTERNET permission in AndroidManifest.xml
 
-### Slide 3: Arsitektur
-- MVVM Pattern
-- Repository Pattern
-- Clean Architecture
-- Separation of Concerns
+### Images Not Loading
+- Check internet connectivity
+- Some URLs from API may be invalid
 
-### Slide 4: Tech Stack
-- Retrofit untuk API
-- Glide untuk gambar
-- Coroutines untuk async
-- LiveData untuk reactive
-- RecyclerView untuk list
+### Gradle Sync Failed
+- Invalidate caches: File > Invalidate Caches > Invalidate and Restart
+- Ensure stable internet connection for dependency downloads
 
-### Slide 5: Demo
-- Screenshot aplikasi
-- Video demo (jika ada)
+## Development
 
-### Slide 6: Challenges & Solutions
-- Infinite scroll implementation
-- Image loading optimization
-- API rate limiting handling
+Built as part of Rakamin Academy - Bank Mandiri Internship Program
 
-## 👨‍💻 Developer
+## License
 
-Developed for **Rakamin Academy - Bank Mandiri Internship**
-
-## 📄 License
-
-This project is for educational purposes.
+This project is developed for educational purposes.
 
 ---
 
-**Selamat Menggunakan NewsApp! 🚀**
-
-Jika ada pertanyaan atau issue, jangan ragu untuk bertanya.
+For questions or issues, please open an issue on GitHub.
